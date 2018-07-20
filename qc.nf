@@ -113,8 +113,6 @@ process msgfPlus {
 
 
 process determineTDPSMS {
-  container 'ubuntu:latest'
-
   input:
   file 'psms' from mzidtsv
 
@@ -168,8 +166,6 @@ psmtable
   .into { psm2prottable; psmprotquant }
 
 process cutPasteReplacePeptideProteinTable{
-
-  container 'ubuntu:latest'
 
   publishDir "${params.outdir}", mode: 'copy', overwrite: true, saveAs: { it == "tpep" ? "peptable.txt" : null }
 
